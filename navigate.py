@@ -6,6 +6,8 @@ def calculate_velocity(target, current):
     dist_min = 0.1
     ang_min = 0.1
     ang_move = 0.3
+    # k_v = 2.0
+    # k_w = 1.5
     vx_max = 0.5
     w_max = 0.5
 
@@ -41,13 +43,13 @@ def calculate_velocity(target, current):
         erro_final = erro_final + 6.28
 
 
-    vx = dist
+    vx = dist    # * k_v
 
     if vx > vx_max:
         vx = vx_max
 
 
-    w = erro
+    w = erro    # * k_w
 
     if w > w_max:
         w = w_max
@@ -81,7 +83,7 @@ def calculate_velocity(target, current):
     return vel
 
 
-# target = (2.0, 0.0, 1.57)
+# target = (2.0, 0.0, 1.5)
 # current = (0.0, 0.0, 0.0)
 
 # vel = calculate_velocity(target, current)
